@@ -1,4 +1,8 @@
 {
+  "rules": {
+  "ordered-imports": [false],
+  "object-literal-sort-keys": [false]
+},
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "build/dist",

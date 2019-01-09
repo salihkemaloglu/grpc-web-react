@@ -19,6 +19,7 @@
           "check-space"
       ],
       "curly": true,
+      "jsx-boolean-value": false,
       "eofline": false,
       "forin": true,
       "indent": [ true, "spaces" ],
@@ -37,7 +38,7 @@
       "no-any": true,
       "no-arg": true,
       "no-bitwise": true,
-      "no-consecutive-blank-lines": true,
+      "no-consecutive-blank-lines": false,
       "no-construct": true,
       "no-debugger": true,
       "no-duplicate-variable": true,
@@ -50,15 +51,15 @@
       "no-unused-expression": true,
       "no-use-before-declare": true,
       "one-line": [
-          true,
+          false,
           "check-catch",
           "check-else",
           "check-open-brace",
           "check-whitespace"
       ],
-      "quotemark": [true, "single", "jsx-double"],
+      "quotemark": [false, "single", "jsx-double"],
       "radix": true,
-      "semicolon": [true, "always"],
+      "semicolon": [false, "always"],
       "switch-default": true,
 
       "trailing-comma": [false],

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { Header } from './components';
+import { NavMenu } from './components';
 
 export const App: React.StatelessComponent<{}> = (props) => {
   return (
-    <Header />
+    <NavMenu />
   );
 };

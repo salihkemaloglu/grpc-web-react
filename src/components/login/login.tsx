@@ -1,41 +1,30 @@
 import * as React from 'react';
 
-import { Form, FormGroup, Col, FormControl, Checkbox, Button, ControlLabel } from 'react-bootstrap';
-const css = require('./loginpage.css')
+import { Form, Button, } from 'react-bootstrap';
+
 export const Login: React.StatelessComponent<{}> = () => {
   return (
     <div  className="width:10px;"  >
-      <Form horizontal className={css.foo}>
-        <FormGroup controlId="formHorizontalEmail">
-          <Col componentClass={ControlLabel} sm={2}>
-            Email
-          </Col>
-                <Col sm={5}>
-                  <FormControl type="email" placeholder="Email" />
-                </Col>
-              </FormGroup>
+    <Form>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="email" placeholder="Enter email" />
+    <Form.Text className="text-muted">
+      We'll never share your email with anyone else.
+    </Form.Text>
+  </Form.Group>
 
-              <FormGroup controlId="formHorizontalPassword">
-                <Col componentClass={ControlLabel} sm={2}>
-                  Password
-          </Col>
-          <Col md={6}>
-            <FormControl type="password" placeholder="Password" />
-          </Col>
-        </FormGroup>
-
-        <FormGroup>
-          <Col smOffset={2} >
-            <Checkbox>Remember me</Checkbox>
-          </Col>
-        </FormGroup>
-
-        <FormGroup>
-          <Col smOffset={2} sm={10}>
-            <Button type="submit">Sign in</Button>
-          </Col>
-        </FormGroup>
-      </Form>
+  <Form.Group controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" placeholder="Password" />
+  </Form.Group>
+  <Form.Group controlId="formBasicChecbox">
+    <Form.Check type="checkbox" label="Check me out" />
+  </Form.Group>
+  <Button variant="primary" type="submit">
+    Submit
+  </Button>
+</Form>
     </div>
   );
 };

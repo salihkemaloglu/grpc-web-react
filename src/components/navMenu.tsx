@@ -1,43 +1,22 @@
 import * as React from 'react';
-import { IndexLinkContainer } from 'react-router-bootstrap'
-import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+// import { IndexLinkContainer } from 'react-router-bootstrap'
+import { Nav, Navbar, Form, FormControl, Button } from 'react-bootstrap';
 export const NavMenu: React.StatelessComponent<{}> = () => {
   return (
 <div className='main-nav'>
-<Navbar inverse collapseOnSelect>
-  <Navbar.Header>
-    <Navbar.Brand>
-    <IndexLinkContainer to="/" activeClassName="active">
-    <a href="#brand">DEMloid</a>
-    </IndexLinkContainer>     
-    </Navbar.Brand>
-    <Navbar.Toggle />
-  </Navbar.Header>
-  <Navbar.Collapse>
-    <Nav>
-    <IndexLinkContainer to="about">
-         <NavItem><span className='glyphicon glyphicon-education'/>About</NavItem>
-    </IndexLinkContainer>        
-      <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown" >
-        <IndexLinkContainer to="members">
-          <MenuItem>Members</MenuItem>
-       </IndexLinkContainer>  
-        <MenuItem eventKey={3.2}>Another action</MenuItem>
-        <MenuItem eventKey={3.3}>Something else here</MenuItem>
-        <MenuItem divider />
-        <MenuItem eventKey={3.3}>Separated link</MenuItem>
-      </NavDropdown>
+<Navbar bg="dark" variant="dark">
+    <Navbar.Brand href="/">Navbar</Navbar.Brand>
+    <Nav className="mr-auto">
+      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="members">menbers</Nav.Link>
+      <Nav.Link href="about">about</Nav.Link>
+      <Nav.Link href="login">login</Nav.Link>
     </Nav>
-    <Nav pullRight>
-      <NavItem eventKey={1} href="#">
-        Link Right
-      </NavItem>
-      <IndexLinkContainer to="login">
-         <NavItem><span className='glyphicon glyphicon-education'/>Login</NavItem>
-    </IndexLinkContainer>  
-    </Nav>
-  </Navbar.Collapse>
-</Navbar>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-info">Search</Button>
+    </Form>
+  </Navbar>
 </div>
   );
 }

@@ -8,7 +8,7 @@ export const NavMenu: React.StatelessComponent<{}> = () => {
   <Navbar.Header>
     <Navbar.Brand>
     <IndexLinkContainer to="/" activeClassName="active">
-    <a href="#brand">React-Bootstrap</a>
+    <a href="#brand">DEMloid</a>
     </IndexLinkContainer>     
     </Navbar.Brand>
     <Navbar.Toggle />
@@ -32,9 +32,9 @@ export const NavMenu: React.StatelessComponent<{}> = () => {
       <NavItem eventKey={1} href="#">
         Link Right
       </NavItem>
-      <NavItem eventKey={2} href="#">
-        Link Right
-      </NavItem>
+      <IndexLinkContainer to="login">
+         <NavItem><span className='glyphicon glyphicon-education'/>Login</NavItem>
+    </IndexLinkContainer>  
     </Nav>
   </Navbar.Collapse>
 </Navbar>

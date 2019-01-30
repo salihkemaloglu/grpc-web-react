@@ -18,7 +18,9 @@
     "react-router": "^4.3.1",
     "react-router-bootstrap": "^0.24.4",
     "react-scripts-ts": "3.1.0",
-    "typesafe-actions": "^1.1.2"
+    "reactstrap": "^7.1.0",
+    "typesafe-actions": "^1.1.2",
+    "typings-for-css-modules-loader": "^1.7.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -38,7 +40,7 @@
     "awesome-typescript-loader": "^5.2.0",
     "babel-core": "^6.25.0",
     "babel-preset-env": "^1.5.2",
-    "css-loader": "^1.0.0",
+    "css-loader": "^2.1.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.22.1",

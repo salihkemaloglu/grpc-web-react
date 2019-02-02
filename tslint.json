@@ -23,7 +23,7 @@
       "eofline": false,
       "forin": true,
       "indent": [ true, "spaces" ],
-      "interface-name": [true, "never-prefix"],
+      "interface-name": [true, "always-prefix"],
       "jsdoc-format": true,
       "jsx-no-lambda": false,
       "jsx-no-multiline-js": false,
@@ -35,7 +35,8 @@
           "static-before-instance",
           "variables-before-functions"
       ],
-      "no-any": true,
+      "eslint-disable-next-line":false,
+      "no-any": false,
       "no-arg": true,
       "no-bitwise": true,
       "no-consecutive-blank-lines": false,

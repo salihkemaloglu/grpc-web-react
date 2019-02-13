@@ -28,7 +28,7 @@ export const Login: React.StatelessComponent<{}> = () => {
     });
   }
   return (
-    <div className="width:10px;"  >
+    <div>
       <Form>
         <Form.Group controlId="formBasicEmail">
           <Form.Label className="barBaz">Email address</Form.Label>

@@ -6,7 +6,7 @@ export const NavMenu: React.StatelessComponent<{}> = () => {
     <div className='main-nav'>
       <Navbar bg="dark" variant="dark">
         <IndexLinkContainer to="/" activeClassName="active">
-          <Navbar.Brand >DEMloid</Navbar.Brand>
+          <Navbar.Brand >ChainPass</Navbar.Brand>
         </IndexLinkContainer>
         <Nav className="mr-auto">
         <IndexLinkContainer to="/" activeClassName="active">

@@ -12,7 +12,7 @@ export const Login: React.StatelessComponent<{}> = () => {
  function  getBook() {
     const host = 'http://localhost:8900';
     const getBookRequest = new HelloRequest();
-    getBookRequest.setName('Ömer ,Thats your first gRPC experience!well done ');
+    getBookRequest.setName('Ömer ,Thats your first GRPC experience!well done ');
     grpc.unary(DemService.SayHello, {
       request: getBookRequest,
       host: host,
@@ -28,7 +28,7 @@ export const Login: React.StatelessComponent<{}> = () => {
     });
   }
   return (
-    <div className="width:10px;"  >
+    <div>
       <Form>
         <Form.Group controlId="formBasicEmail">
           <Form.Label className="barBaz">Email address</Form.Label>

@@ -99,6 +99,30 @@ export namespace User {
   }
 }
 
+export class Greeting extends jspb.Message {
+  getFirstName(): string;
+  setFirstName(value: string): void;
+
+  getLastName(): string;
+  setLastName(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Greeting.AsObject;
+  static toObject(includeInstance: boolean, msg: Greeting): Greeting.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Greeting, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Greeting;
+  static deserializeBinaryFromReader(message: Greeting, reader: jspb.BinaryReader): Greeting;
+}
+
+export namespace Greeting {
+  export type AsObject = {
+    firstName: string,
+    lastName: string,
+  }
+}
+
 export class RegisterUserRequest extends jspb.Message {
   hasUser(): boolean;
   clearUser(): void;
@@ -312,6 +336,48 @@ export class HelloResponse extends jspb.Message {
 export namespace HelloResponse {
   export type AsObject = {
     message: string,
+  }
+}
+
+export class LongGreetRequest extends jspb.Message {
+  getGreeting(): Uint8Array | string;
+  getGreeting_asU8(): Uint8Array;
+  getGreeting_asB64(): string;
+  setGreeting(value: Uint8Array | string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): LongGreetRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: LongGreetRequest): LongGreetRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: LongGreetRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): LongGreetRequest;
+  static deserializeBinaryFromReader(message: LongGreetRequest, reader: jspb.BinaryReader): LongGreetRequest;
+}
+
+export namespace LongGreetRequest {
+  export type AsObject = {
+    greeting: Uint8Array | string,
+  }
+}
+
+export class LongGreetResponse extends jspb.Message {
+  getResult(): string;
+  setResult(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): LongGreetResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: LongGreetResponse): LongGreetResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: LongGreetResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): LongGreetResponse;
+  static deserializeBinaryFromReader(message: LongGreetResponse, reader: jspb.BinaryReader): LongGreetResponse;
+}
+
+export namespace LongGreetResponse {
+  export type AsObject = {
+    result: string,
   }
 }
 

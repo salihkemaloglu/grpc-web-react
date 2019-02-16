@@ -25,6 +25,10 @@ message User {
     string shared_file_count=8;
     string empty_space=9;
 }
+message Greeting {
+    string first_name = 1;
+    string last_name = 2;
+}
 
 message RegisterUserRequest{
     User user=1;
@@ -61,6 +65,13 @@ message HelloRequest {
   message HelloResponse {
     string message = 1;
   }
+  message LongGreetRequest {
+    bytes  greeting = 1;
+}
+
+message LongGreetResponse {
+    string result = 1;
+}
 service DemService{
 
     rpc RegisterUser (RegisterUserRequest) returns (RegisterUserResponse);
@@ -72,5 +83,7 @@ service DemService{
     rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
 
     rpc SayHello (HelloRequest) returns (HelloResponse);
+
+    rpc LongGreet(stream LongGreetRequest) returns (LongGreetResponse) {};
 
 }

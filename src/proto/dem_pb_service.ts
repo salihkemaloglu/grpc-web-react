@@ -46,4 +46,12 @@ export namespace DemService {
     static readonly requestType = proto_dem_pb.HelloRequest;
     static readonly responseType = proto_dem_pb.HelloResponse;
   }
+  export class LongGreet {
+    static readonly methodName = "LongGreet";
+    static readonly service = DemService;
+    static readonly requestStream = true;
+    static readonly responseStream = false;
+    static readonly requestType = proto_dem_pb.LongGreetRequest;
+    static readonly responseType = proto_dem_pb.LongGreetResponse;
+  }
 }

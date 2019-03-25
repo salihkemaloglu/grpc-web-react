@@ -1,0 +1,7 @@
+version: '3.5'
+services:
+  webui:
+    container_name: webui
+    image: web
+    ports:
+      - '3000:3000'

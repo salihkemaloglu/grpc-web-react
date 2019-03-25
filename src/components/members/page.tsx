@@ -9,7 +9,6 @@ import { EntityGateway } from "../../infrastructure/src/index";
 
 // Testing frameworks
 import * as chai from "chai";
-import 'mocha';
 
 export const MembersPage: React.StatelessComponent<{}> = () => {
 

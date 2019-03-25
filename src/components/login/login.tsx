@@ -3,17 +3,17 @@ import * as React from 'react';
 import { Form, Button, } from 'react-bootstrap';
 
 import { grpc } from 'grpc-web-client';
-import { DemService } from '../../proto/dem_pb_service';
-import { HelloRequest } from '../../proto/dem_pb';
+import { DemRRService } from '../../proto/demRR_pb_service';
+import { HelloRequest } from '../../proto/demRR_pb';
 
 import './Loginpage.css';
 export const Login: React.StatelessComponent<{}> = () => {
- 
- function  getBook() {
+
+  function getBook() {
     const host = 'http://localhost:8900';
     const getBookRequest = new HelloRequest();
-    getBookRequest.setName('Ömer ,Thats your first GRPC experience!well done ');
-    grpc.unary(DemService.SayHello, {
+    getBookRequest.setMessage('Ömer ,Thats your first GRPC experience!well done ');
+    grpc.unary(DemRRService.SayHello, {
       request: getBookRequest,
       host: host,
       onEnd: res => {

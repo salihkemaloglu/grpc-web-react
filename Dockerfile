@@ -1,17 +1,23 @@
 FROM node:10.15.1
 
-# Create app directory
+# set working directory
+RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
-RUN npm i -g yarn
+# install and cache app dependencies
+COPY package.json /usr/src/app/package.json
 
-RUN yarn install 
+RUN npm i -g yarn --silent
+
+RUN yarn install  --silent
 
 # Bundle app source
-COPY . .
+# COPY . .
 
 EXPOSE 3000
 
 CMD ["yarn", "start"]
+

@@ -1,17 +1,20 @@
 FROM node:10.15.1
 
-# Create app directory
+RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
-RUN npm i -g yarn
+COPY package.json /usr/src/app/package.json
 
-RUN yarn install 
+RUN npm install 
+RUN npm install react-scripts@1.1.1 -g 
+RUN npm audit fix
 
-# Bundle app source
-COPY . .
+COPY . /usr/src/app
+
+RUN npm run build
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]

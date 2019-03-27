@@ -2,10 +2,9 @@ import * as React from 'react';
 
 import { Button } from 'react-bootstrap';
 
-import classNames from 'classnames';
-import Dropzone from 'react-dropzone';
+// import { useDropzone } from 'react-dropzone'
 
-import { grpc } from 'grpc-web-client';
+import { grpc } from '@improbable-eng/grpc-web';
 import { DemRRService } from '../proto/demRR_pb_service';
 import { HelloRequest, RegisterUserRequest, HelloResponse, User, RegisterUserResponse, LoginUserRequest, UserLogin, LoginUserResponse } from '../proto/demRR_pb';
 import { LongGreetRequest, Chunk, UploadFileRequest } from '..//proto/demMN_pb';
@@ -13,6 +12,7 @@ import { DemMNService } from '../proto/demMN_pb_service';
 
 
 import { GigxRRService } from 'src/proto/gigxRR_pb_service';
+// import { useCallback } from 'react';
 
 export const Home: React.StatelessComponent<{}> = () => {
   var state = {
@@ -20,17 +20,31 @@ export const Home: React.StatelessComponent<{}> = () => {
     fileName: '',
     url: 'http://178.62.239.148:8902'
   };
+  // function onDrop(){
+  //   useCallback(acceptedFiles => {
+  //     // Do something with the files
+  //     var reader = new FileReader();
+  //       reader.onload = function () {
+  //         var arrayBuffer = reader.result;
+  //         let currentArray = arrayBuffer === null ? JSON.parse("null") : arrayBuffer;
+  //         state.files = currentArray;
+  //         state.fileName = acceptedFiles[0].name;
+  //       };
+  //       reader.readAsArrayBuffer(acceptedFiles[0]);
+  //   }, [])
+  // }
 
-  function onDrop(_acceptedFiles: any, _rejectedFiles: any) {
-    var reader = new FileReader();
-    reader.onload = function () {
-      var arrayBuffer = reader.result;
-      let currentArray = arrayBuffer === null ? JSON.parse("null") : arrayBuffer;
-      state.files = currentArray;
-      state.fileName = _acceptedFiles[0].name;
-    };
-    reader.readAsArrayBuffer(_acceptedFiles[0]);
-  }
+  // const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
+  // function onDrop(_acceptedFiles: any, _rejectedFiles: any) {
+  //   var reader = new FileReader();
+  //   reader.onload = function () {
+  //     var arrayBuffer = reader.result;
+  //     let currentArray = arrayBuffer === null ? JSON.parse("null") : arrayBuffer;
+  //     state.files = currentArray;
+  //     state.fileName = _acceptedFiles[0].name;
+  //   };
+  //   reader.readAsArrayBuffer(_acceptedFiles[0]);
+  // }
 
   function TestMainService() {
     const req = new HelloRequest();
@@ -55,11 +69,11 @@ export const Home: React.StatelessComponent<{}> = () => {
   function TestRRService() {
     const req = new HelloRequest();
     req.setMessage('Is RR service working?');
-    
+
     grpc.invoke(GigxRRService.SayHello, {
       request: req,
       host: state.url,
-      metadata: new grpc.Metadata({"Access-Control-Allow-Origin": "*"}),
+      metadata: new grpc.Metadata({ "Access-Control-Allow-Origin": "*" }),
       onHeaders: (headers: grpc.Metadata) => {
         console.log("onHeaders", headers);
       },
@@ -174,23 +188,14 @@ export const Home: React.StatelessComponent<{}> = () => {
   }
   return (
     <div className="row">
-      <Dropzone onDrop={onDrop}>
-        {({ getRootProps, getInputProps, isDragActive }) => {
-          return (
-            <div
-              {...getRootProps()}
-              className={classNames('dropzone', { 'dropzone--isActive': isDragActive })}
-            >
-              <input {...getInputProps()} />
-              {
-                isDragActive ?
-                  <p>Drop files here...</p> :
-                  <p>Try dropping some files here, or click to select files to upload.</p>
-              }
-            </div>
-          );
-        }}
-      </Dropzone>
+      {/* <div {...getRootProps()}>
+        <input {...getInputProps()} />
+        {
+          isDragActive ?
+            <p>Drop the files here ...</p> :
+            <p>Drag 'n' drop some files here, or click to select files</p>
+        }
+      </div> */}
       <Button onClick={TestMainService} >Test Main service</Button>
       <Button onClick={TestRRServiceForUser} >Test RR service for user register</Button>
       <Button onClick={TestRRServiceForUserLogin} >Test RR service for user Login</Button>

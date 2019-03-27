@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Form, Button, } from 'react-bootstrap';
 
-import { grpc } from 'grpc-web-client';
+import { grpc } from '@improbable-eng/grpc-web';
 import { DemRRService } from '../../proto/demRR_pb_service';
 import { HelloRequest } from '../../proto/demRR_pb';
 

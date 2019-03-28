@@ -6,7 +6,7 @@ import { grpc } from '@improbable-eng/grpc-web';
 import { DemRRService } from '../../proto/demRR_pb_service';
 import { HelloRequest } from '../../proto/demRR_pb';
 
-import './Loginpage.css';
+import './loginpage.css';
 export const Login: React.StatelessComponent<{}> = () => {
 
   function getBook() {

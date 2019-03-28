@@ -4,13 +4,14 @@ RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
-ADD package.json /package.json
 
 COPY package.json /usr/src/app/package.json
 
-RUN npm install --save --silent
-RUN npm install react-scripts@latest -g --silent
+RUN npm install 
+RUN npm install react-scripts@1.1.1 -g 
 RUN npm audit fix
+
+COPY . /usr/src/app
 
 EXPOSE 3000
 

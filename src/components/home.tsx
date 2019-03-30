@@ -18,7 +18,7 @@ export const Home: React.StatelessComponent<{}> = () => {
   var state = {
     files: [],
     fileName: '',
-    url: 'http://178.62.239.148:8902'
+    url: 'https://dev-rr.gignox.com:8903'
   };
   // function onDrop(){
   //   useCallback(acceptedFiles => {
@@ -51,7 +51,7 @@ export const Home: React.StatelessComponent<{}> = () => {
     req.setMessage('Is main service working?');
     grpc.invoke(GigxRRService.SayHello, {
       request: req,
-      host: 'http://dev-rr.gignox.com:8902',
+      host: 'https://dev-rr.gignox.com:8903',
       onMessage: (message: HelloResponse) => {
         console.log(message.getMessage());
       },
@@ -199,7 +199,7 @@ export const Home: React.StatelessComponent<{}> = () => {
       <Button onClick={TestMainService} >Test Main service</Button>
       <Button onClick={TestRRServiceForUser} >Test RR service for user register</Button>
       <Button onClick={TestRRServiceForUserLogin} >Test RR service for user Login</Button>
-      <Button onClick={TestRRService} >Test RR service</Button>
+      <Button onClick={TestRRService} >Test RR service witl ssl</Button>
       <button onClick={UploadServerSideStream} color="primary">UploadHandlerServerSide</button>
       <button onClick={UploadServerBiStream} color="primary">UploadHandlerBi</button>
     </div>
